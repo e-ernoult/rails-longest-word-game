@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Result</h1>
+  <% if @result[:message] == "well done" %>
+    <p>Congratulations! <strong><%= @attempt.upcase %></strong> is a valid English world! Your score is : <%= @result[:score].round(2) %></p>
+  <% elsif @result[:message] == "Your word is not in the grid" %>
+    <p>Sorry but <strong><%= @attempt.upcase %></strong> can't be built out of <%= @letters %></p>
+  <% else %>
+    <p>Sorry but <strong><%= @attempt.upcase %></strong> does not seem to be a valid English word</p>
+  <% end %>
+
+  <%= link_to "Try again", new_path %>
+</div>
+
